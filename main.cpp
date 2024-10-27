@@ -14,17 +14,17 @@ void setup_wifi() {
   WiFi.begin(ssid, password);      // Bắt đầu quá trình kết nối với Wi-Fi
   while (WiFi.status() != WL_CONNECTED) {   // Chờ kết nối hoàn tất
     delay(1000);                            // Đợi 1 giây
-    Serial.println("Connecting to WiFi..."); // In ra thông báo khi đang kết nối
+    Serial.println("Đang kết nối với WiFi"); // In ra thông báo khi đang kết nối
   }
-  Serial.println("Connected to WiFi");       // In ra khi kết nối thành công
+  Serial.println("Đã kết nối với WiFi");       // In ra khi kết nối thành công
   Serial.println("Địa chỉ IP là:");
   Serial.println(WiFi.localIP());
 }
 
 String webPage() {
   // Hàm trả về HTML cho trang web chính
-  String html = "<html><head><title>ESP32 Light Sensor</title></head><body>";
-  html += "<h1>Light Intensity: <span id='luxValue'>Loading...</span> lx</h1>";
+  String html = "<html><head><title>Cảm biến ánh sáng</title></head><body>";
+  html += "<h1>Cường độ ánh sáng trong phòng: <span id='luxValue'>Loading...</span> lx</h1>";
   
   // JavaScript để gọi AJAX mỗi 2 giây nhằm cập nhật giá trị cường độ ánh sáng
   html += "<script>setInterval(function() {";
